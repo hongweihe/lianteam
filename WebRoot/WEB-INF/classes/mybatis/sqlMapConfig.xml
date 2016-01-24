@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<mappers>
+		<!-- 采用package扫描方式指定Mapper文件位置 -->
+		<!-- 整个应用采用mapper方式，而不是传统的书写DAO方式 -->
+		<!-- 指定mapper文件的包名或者位置 -->
+		<package name="org.lianteam.mapper"/>
+	</mappers>
+</configuration>

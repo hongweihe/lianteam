@@ -1,0 +1,49 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.2.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-4.2.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-4.2.xsd ">
+		<!-- 整合spring与mybatis -->
+		<!-- 加载数据库配置文件 -->
+		<context:property-placeholder location="classpath:db.properties" />
+		<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+			<property name="driverClass" value="${c3p0.driverClass}"></property>  
+			<property name="jdbcUrl" value="${c3p0.url}"></property>  
+			<property name="user" value="${c3p0.user}"></property>  
+			<property name="password" value="${c3p0.password}"></property>  
+			<property name="acquireIncrement" value="${c3p0.acquireIncrement}"></property>  
+			<property name="initialPoolSize" value="${c3p0.initialPoolSize}"></property>  
+			<property name="maxIdleTime" value="${c3p0.maxIdleTime}"></property>  
+			<property name="maxPoolSize" value="${c3p0.maxPoolSize}"></property>  
+			<property name="minPoolSize" value="${c3p0.minPoolSize}"></property>     
+			<property name="acquireRetryDelay" value="${c3p0.acquireRetryDelay}"></property>  
+			<property name="acquireRetryAttempts" value="${c3p0.acquireRetryAttempts}"></property>  
+			<property name="breakAfterAcquireFailure" value="${c3p0.breakAfterAcquireFailure}"></property>
+			<property name="testConnectionOnCheckout" value="${c3p0.testConnectionOnCheckout}"></property>
+		</bean>
+		<!-- 配置Mybatis的SqlSessionFactory -->
+		<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+			<property name="configLocation" value="mybatis/sqlMapConfig.xml"></property>
+			<property name="dataSource" ref="dataSource"></property>
+		</bean>
+		
+		<!-- 扫描mapper下所有的mapper接口 -->
+		<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+			<property name="basePackage" value="org.lianteam.mapper"></property>
+			<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+			<!-- 这里必须写为sqlSessionFactoryBeanName 否则程序报错-->
+		</bean>
+		
+		<!-- org.lianteam.service.GetDataFromArchiveToView 类 -->
+		<bean id="GetDataFromArchiveToView" class="org.lianteam.service.GetDataFromArchiveToView"></bean>
+		
+</beans>

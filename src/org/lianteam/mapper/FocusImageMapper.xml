@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lianteam.mapper.FocusImageMapper">
+	<!-- 选出分类表中所有数据，并按照sortrank字段进行降序排列 -->
+	<select id="getFocusImageByCategory_idOrderBySortrank" parameterType="int" resultType="org.lianteam.pojo.FocusImage">
+		select * from t_focusimage where category_id=#{value} order by sortrank DESC,id DESC limit 10
+	</select>
+</mapper>
