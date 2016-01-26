@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebInfo>
+	<!-- 这是网站信息配置页面 -->
+	<!-- 需要将xml转成WebInfo对象 再进行调用-->
+	<keyWords>连芳、锂电池、北京科技大学、学院路、正极材料、钴酸锂、无机非金属、连芳实验室</keyWords>
+	<description>锂电池开发，北京科技大学，正极材料、连芳、锂电池材料</description>
+	<name>新能源材料与综合利用技术实验室</name>
+	<address>北京市海淀区学院路30号北京科技大学无机小楼301/302室</address>
+	<tel>010-82377985</tel>
+	<fox>010-82377985</fox>
+	<email>ustbenergy@aliyun.com</email>
+	<copyright>北京科技大学新能源材料与综合利用技术实验室</copyright>
+	<support1>www.openkit.cn 和先生  hehongwei#vip.163.com</support1>
+	<support2>www.zoding.net 郝先生 cheeka#163.com</support2>
+	<beian>京ICP备14056588号-1 </beian>
+	<content1>连芳教授，材料学博士，博导。2008年入选北京市“科技新星”计划。2009年增补为科技部能源材料领域专家。现主要从事无机生态材料和新能源材料的制备和性能研究。在Journal of Membrane Science...</content1>
+	<content2></content2>
+	
+</WebInfo>

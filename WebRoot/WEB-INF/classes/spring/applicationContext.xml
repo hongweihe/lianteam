@@ -43,7 +43,14 @@
 			<!-- 这里必须写为sqlSessionFactoryBeanName 否则程序报错-->
 		</bean>
 		
-		<!-- org.lianteam.service.GetDataFromArchiveToView 类 -->
-		<bean id="GetDataFromArchiveToView" class="org.lianteam.service.GetDataFromArchiveToView"></bean>
+		<!-- org.lianteam.service.DataFromArchiveToView 类 -->
+		<bean id="DataFromArchiveToView" class="org.lianteam.service.DataFromArchiveToView"></bean>
+		
+		<!-- org.lianteam.service.DataFromFocusImageToView 类-->
+		<bean id="DataFromFocusImageToView" class="org.lianteam.service.DataFromFocusImageToView"></bean>
+		
+		<!-- org.lianteam.service.DataFromPaperToView  类-->
+		<bean id="DataFromPaperToView" class="org.lianteam.service.DataFromPaperToView"></bean>
+		
 		
 </beans>

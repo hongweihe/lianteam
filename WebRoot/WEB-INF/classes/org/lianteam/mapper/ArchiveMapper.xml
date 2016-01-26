@@ -9,6 +9,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<foreach collection="category_idList" item="category_idlist"  open="(" close=")" separator="," >
 			#{category_idlist}
 		</foreach>
-		order by id DESC limit #{limit}
+		order by id DESC,sortrank limit #{limit}
 	</select>
 </mapper>

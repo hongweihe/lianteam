@@ -8,12 +8,17 @@
 	id：查询条件中数据的id 主键号
 	category_id：查询条件中数据的分类
 	limit：取出的数据条数
+	displayName:栏目名称，前端需要用 ${dipalyName_name)的方式取出来
+	功能说明：DataFromArchiveToView 获取新闻列表
+	功能说明：DataFromFocusImageToView 获取焦点图列表 
+	功能说明：DataFromPaperToView 获取文章列表
  -->
 <pages>
 	<page>
 		<pageName>index</pageName>
-		<functionClassName>GetDataFromArchiveToView</functionClassName>
-		<dataBind>hangyexinwen</dataBind>
+		<functionClassName>DataFromArchiveToView</functionClassName>
+		<dataBind>wangzhanredian</dataBind>
+		<displayName>网站热点</displayName>
 		<id></id>
 		<category_id>17</category_id>
 		<category_id>18</category_id>
@@ -22,22 +27,90 @@
 	</page>
 	<page>
 		<pageName>index</pageName>
-		<functionClassName>GetDataFromArchiveToView</functionClassName>
-		<dataBind>archiveList</dataBind>
+		<functionClassName>DataFromArchiveToView</functionClassName>
+		<dataBind>hangyexinwen</dataBind>
+		<displayName>行业新闻</displayName>
 		<id></id>
 		<category_id>17</category_id>
 		<category_id>18</category_id>
-		<category_id>20</category_id>
-		<limit>4</limit>
+		<category_id>23</category_id>
+		<limit>6</limit>
 	</page>
 	<page>
 		<pageName>index</pageName>
-		<functionClassName>GetDataFromArchiveToView</functionClassName>
+		<functionClassName>DataFromArchiveToView</functionClassName>
 		<dataBind>yeneiqianyan</dataBind>
+		<displayName>业内动态</displayName>
 		<id></id>
 		<category_id>17</category_id>
 		<category_id>18</category_id>
-		<category_id>20</category_id>
+		<category_id>19</category_id>
+		<category_id>23</category_id>
+		<limit>3</limit>
+	</page>
+	<!-- 导航栏下焦点图 daohanglanxiajiaodiantu -->
+	<page>
+		<pageName>index</pageName>
+		<functionClassName>DataFromFocusImageToView</functionClassName>
+		<dataBind>daohanglanxiajiaodiantu</dataBind>
+		<displayName>焦点图</displayName>
+		<id></id>
+		<category_id>-1</category_id>
 		<limit>4</limit>
+	</page>
+	
+	<!-- 研究方向 焦点图  yanjiufangxiang -->
+	<page>
+		<pageName>index</pageName>
+		<functionClassName>DataFromFocusImageToView</functionClassName>
+		<dataBind>yanjiufangxiang</dataBind>
+		<displayName>研究方向</displayName>
+		<id></id>
+		<category_id>-2</category_id>
+		<limit>4</limit>
+	</page>
+	
+	<!-- 生活贴士 焦点图 shenghuotieshi -->
+	<page>
+		<pageName>index</pageName>
+		<functionClassName>DataFromFocusImageToView</functionClassName>
+		<dataBind>shenghuotieshi</dataBind>
+		<displayName>研究方向</displayName>
+		<id></id>
+		<category_id>-3</category_id>
+		<limit>3</limit>
+	</page>
+	
+	<!-- 著名文章 焦点图 zhumingwenzhang -->
+	<page>
+		<pageName>index</pageName>
+		<functionClassName>DataFromFocusImageToView</functionClassName>
+		<dataBind>zhumingwenzhang</dataBind>
+		<displayName>著名文章</displayName>
+		<id></id>
+		<category_id>-4</category_id>
+		<limit>4</limit>
+	</page>
+	
+	<!-- 科研仪器  焦点图  keyanyiqi-->
+	<page>
+		<pageName>index</pageName>
+		<functionClassName>DataFromFocusImageToView</functionClassName>
+		<dataBind>keyanyiqi</dataBind>
+		<displayName>科研仪器</displayName>
+		<id></id>
+		<category_id>-5</category_id>
+		<limit>8</limit>
+	</page>
+	
+	 <!-- 最新论文 zuixinlunwen -->
+	<page>
+		<pageName>index</pageName>
+		<functionClassName>DataFromPaperToView</functionClassName>
+		<dataBind>zuixinlunwen</dataBind>
+		<displayName>最新论文</displayName>
+		<id></id>
+		<category_id>1</category_id>
+		<limit>3</limit>
 	</page>
 </pages>

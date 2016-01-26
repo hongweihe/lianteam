@@ -9,6 +9,7 @@ public class Page {
 	private int limit;//前段要显示的条目数量限制
 	private List<Integer> id;//前段要显示的表的id
 	private List<Integer> category_id;//前段要显示的数据所在的分类
+	private String displayName;
 	//getter....setter...
 	public String getPageName() {
 		return pageName;
@@ -45,6 +46,12 @@ public class Page {
 	}
 	public void setCategory_id(List<Integer> category_id) {
 		this.category_id = category_id;
+	}
+	public String getDisplayName() {
+		return displayName;
+	}
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
 	}
 	
 }

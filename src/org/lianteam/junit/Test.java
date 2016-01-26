@@ -2,11 +2,14 @@ package org.lianteam.junit;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.lianteam.service.GetDataFromTableToView;
+import org.lianteam.xmlBean.WebInfo;
+import org.lianteam.xmlBean.XmlToBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -30,9 +33,11 @@ public class Test {
 	@org.junit.Test
 	public void test() throws Exception {
 		//fail("Not yet implemented");
-		GetDataFromTableToView gtv = new GetDataFromTableToView();
-		ApplicationContext ac = new ClassPathXmlApplicationContext("spring/applicationContext.xml");//
-		System.out.println(gtv.GetDataByModuleInXml(ac, "index","webconfig.xml"));
+		XmlToBean xtb = new XmlToBean("webinfo.xml");
+		WebInfo wi =  (WebInfo)xtb.getBeanFromXml(WebInfo.class);
+	    System.out.println(wi);
+		
+	
 	}
 
 }

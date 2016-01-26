@@ -4,7 +4,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.lianteam.mapper.FocusImageMapper">
 	<!-- 选出分类表中所有数据，并按照sortrank字段进行降序排列 -->
-	<select id="getFocusImageByCategory_idOrderBySortrank" parameterType="int" resultType="org.lianteam.pojo.FocusImage">
-		select * from t_focusimage where category_id=#{value} order by sortrank DESC,id DESC limit 10
+	<select id="getFocusImageByCategory_idOrderBySortrank" parameterType="org.lianteam.vo.WhereCondition" resultType="org.lianteam.pojo.FocusImage">
+		select * from t_focusimage where category_id in
+		<foreach collection="category_idList" item="category_idlist"  open="(" close=")" separator="," >
+			#{category_idlist}
+		</foreach>
+		order by id DESC,sortrank limit #{limit}
 	</select>
 </mapper>

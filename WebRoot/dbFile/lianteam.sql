@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : LianTeamWest
-Source Server Version : 50622
-Source Host           : hhwei.gotoftp11.com:3306
-Source Database       : hhwei
+Source Server         : 本地
+Source Server Version : 50628
+Source Host           : localhost:3306
+Source Database       : lianteam
 
 Target Server Type    : MYSQL
-Target Server Version : 50622
+Target Server Version : 50628
 File Encoding         : 65001
 
-Date: 2016-01-24 18:58:12
+Date: 2016-01-26 20:19:12
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -115,7 +115,7 @@ CREATE TABLE `t_focusimage` (
   `content` text,
   `title` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_focusimage
@@ -129,3 +129,44 @@ INSERT INTO `t_focusimage` VALUES ('6', '-2', null, '太阳能电池', '#', '50'
 INSERT INTO `t_focusimage` VALUES ('7', '-2', null, '固体废弃物循环利', '#', '50', '《非金属矿渣共掺制取低碳胶凝材料关键技术及示范》是由北京科技大学、西安建筑科技大学、首钢环保事业部、陕西龙门钢铁公司环保产业分公司、中科院科技政策管理所五家单位共同承担，国家十二五支撑计划支持的项目。我们针对钢渣成分波动大、胶凝活性低、易磨性差、体积安定性不良的缺点，提出了利用钢渣余热，排渣温度1300-1600℃，通过掺入合适的改性物质，使发生二次物相反应，控制钢渣的化学组成和矿物组成，探寻高温重构过程中矿相演变规律，实现钢渣的高温改性，制备高性能胶凝材料，并对高温改性钢渣的性能进行评价。', '资源利用');
 INSERT INTO `t_focusimage` VALUES ('8', '-2', null, '锂离子电池电解质', '#', '50', '包括：LiPF6基、LiBOB基液态电解质，凝胶聚合物电解质等。我们专注于硼基锂盐LiBOB的合成与表征、与正负极材料的相容性、以及LiBOB盐在离子液体和聚合物电解质中的应用研究，在固相合成法的基础上创造性地提出流变相合成的理念，并对其作为添加剂在锂离子电池电解液和离子液体中的应用进行了优化。该研究已申请国家专利5项，授权1项。', '电解质');
 INSERT INTO `t_focusimage` VALUES ('9', '-2', null, '锂离子电池正极材料', '#', '50', '包括：高容量富锂锰基正极材料、Li[NiMnCo]O2三元系富镍材料、NCA系材料、尖晶石锰酸锂材料，以及高安全性LiMPO4材料。针对锂离子电池正极材料在目前的研究和应用中存在首次可逆效率低下、比容量低、热稳定性较差和循环性能不稳定等问题，本课题组通过掺杂，包覆等表面改性的方法进行了结构和性能的优化。该研究已申请国家专利2项，授权1项。', '正极材料');
+INSERT INTO `t_focusimage` VALUES ('10', '-3', '1.jpg', '锂离子电池在手机行业中的运用', '#', '50', '锂离子电池在手机行业中的运用', '锂离子电池在手机行业中的运用');
+INSERT INTO `t_focusimage` VALUES ('11', '-3', '2.jpg', '锂离子电池普遍被广泛采用在了便携设备中', '#', '50', '锂离子电池普遍被广泛采用在了便携设备中', '锂离子电池普遍被广泛采用在了便携中');
+INSERT INTO `t_focusimage` VALUES ('12', '-3', '3.jpg', '采用了锂离子电池的环保汽车', '#', '50', '采用了锂离子电池的环保汽车', '采用了锂离子电池的环保汽车');
+INSERT INTO `t_focusimage` VALUES ('13', '-3', '4.jpg', '太阳能电池板逐渐被普及', '#', '50', '太阳能电池板逐渐被普及', '太阳能电池板逐渐被普及');
+INSERT INTO `t_focusimage` VALUES ('14', '-4', '1.jpg', 'SCI,EI,影响因子', '#', '50', '正极材料Li[Ni1/3Li1/9Mn5/9]O2的结构和充放电过程研究', '正极材料Li[Ni1/3Li1/9Mn5/9]O2的结构和充放电过程研究');
+INSERT INTO `t_focusimage` VALUES ('15', '-4', '1.jpg', 'SCI,EI,影响因子', '#', '50', '正极材料Li[Ni1/3Li1/9Mn5/9]O2的结构和充放电过程研究', '正极材料Li[Ni1/3Li1/9Mn5/9]O2的结构和充放电过程研究');
+INSERT INTO `t_focusimage` VALUES ('16', '-4', '1.jpg', 'SCI,EI,影响因子', '#', '50', '正极材料Li[Ni1/3Li1/9Mn5/9]O2的结构和充放电过程研究', '正极材料Li[Ni1/3Li1/9Mn5/9]O2的结构和充放电过程研究');
+INSERT INTO `t_focusimage` VALUES ('17', '-4', '1.jpg', 'SCI,EI,影响因子', '#', '50', '正极材料Li[Ni1/3Li1/9Mn5/9]O2的结构和充放电过程研究', '正极材料Li[Ni1/3Li1/9Mn5/9]O2的结构和充放电过程研究');
+INSERT INTO `t_focusimage` VALUES ('19', '-5', '1.jpg', '布劳恩手套箱', '#', '50', null, '布劳恩手套箱');
+INSERT INTO `t_focusimage` VALUES ('20', '-5', '2.jpg', '布劳恩手套箱', '#', '50', null, '布劳恩手套箱');
+INSERT INTO `t_focusimage` VALUES ('21', '-5', '3.jpg', '扣式电池封口机', '#', '50', null, '扣式电池封口机');
+INSERT INTO `t_focusimage` VALUES ('22', '-5', '4.jpg', '马弗炉', '#', '50', null, '马弗炉');
+INSERT INTO `t_focusimage` VALUES ('23', '-5', '5.jpg', '锂离子电池相关', '#', '50', null, '锂离子电池相关');
+INSERT INTO `t_focusimage` VALUES ('24', '-5', '6.jpg', '锂离子电池相关', '#', '50', null, '锂离子电池相关');
+INSERT INTO `t_focusimage` VALUES ('25', '-5', '7.jpg', '锂离子电池相关', '#', '50', null, '锂离子电池相关');
+
+-- ----------------------------
+-- Table structure for t_paper
+-- ----------------------------
+DROP TABLE IF EXISTS `t_paper`;
+CREATE TABLE `t_paper` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) DEFAULT NULL,
+  `title` varchar(128) DEFAULT NULL,
+  `author` varchar(64) DEFAULT NULL,
+  `creattime` datetime DEFAULT '1985-10-06 19:55:00',
+  `content` text,
+  `qikan` varchar(128) DEFAULT NULL,
+  `file` varchar(128) DEFAULT NULL,
+  `sortrank` int(11) DEFAULT '50',
+  `volume` varchar(64) DEFAULT '2016-1-1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_paper
+-- ----------------------------
+INSERT INTO `t_paper` VALUES ('1', '1', '新型聚乙烯醇缩甲醛基凝胶聚合物电解质的热稳定性', '连芳', '2016-01-01 00:00:00', '采用原位热聚合法制备了聚乙烯醇缩甲醛(PVFM)基凝胶聚合物电解质,通过差示扫描量热法(DSC)研究了PVFM基凝胶聚合物电解质的热稳定性,并利用热重-红外/质谱(TGA-FTIR/MS)联用技术比较研究了液态电解质和PVFM基凝胶聚合物电解质升温过程中逸出气体的成分及变化.结果表明,相比于液态电解质,凝胶聚合物电解质中PVFM热聚合产生的三维网络结构可以有效抑制有机溶剂的挥发,降低体系中HF的含量,从而改善电解质体系的热稳定性,提高其应用于锂离子电池的安全性能. ', '高等学校化学学报 ', '#', '50', '2014年01期 ');
+INSERT INTO `t_paper` VALUES ('2', '1', '锂离子电池用凝胶聚合物电解质研究进展', '关红艳', '2016-01-01 00:00:00', '凝胶聚合物电解质既具有固态聚合物电解质良好的力学加工性能和安全性能,又具有传统液态电解质较高的室温离子电导率。但凝胶聚合物电解质由于室温离子电导率低、力学强度较差的缺点限制了其在锂离子电池上的应用。结合目前研究的最新进展,本文针对几种常用凝胶聚合物电解质体系聚氧化乙烯、聚丙烯腈、聚甲基丙烯酸甲酯、聚偏氟乙烯-六氟丙烯和聚乙烯醇缩醛进行了综述,对其制备方法以及通过聚合物调控、加入无机填料和复合离子液体进行改性处理做了较全面的介绍,并探讨了凝胶聚合物电解质的应用前景。', '高分子材料科学与工程', '#', '50', '2012年11期 ');
+INSERT INTO `t_paper` VALUES ('3', '1', '粉末冶金制备AlNiCrFeCuMo_x高熵合金及其性能', '关红艳', '2016-01-01 00:00:00', '采用粉末冶金法制备AlNiCrFeCuMox(x=0～0.2)合金,研究Mo含量对合金微观组织以及力学性能的影响。随着Mo含量的增加,AlNiCrFeCuMox合金的微观组织均为典型的花瓣状枝晶,且由于高熵效应,使得体系的相组成十分简单,均为bcc和fcc;bcc最高峰的强度会逐渐降低,相应地fcc的强度有所增加,所以Mo元素促进了fcc结构的生成。同时,当x=0.1时,合金拥有较好的力学性能,硬度达到5160MPa,断裂强度为1161MPa,最大变形率为24.4%。AlNiCrFeCuMox合金的力学性能变化是元素性质与晶体结构综合作用的结果。 ', '稀有金属材料与工程', '#', '50', '2012年S2期 ');
+INSERT INTO `t_paper` VALUES ('4', '1', '正极材料Li[Ni1/3Li1/9Mn5/9]O2的结构和充放电过程研究', '连芳', '2016-01-01 00:00:00', '应用X射线衍射,选区电子衍射和同步X射线衍射等方法,对锂离子电池正极材料Li[Ni1/3Li1/9Mn5/9]O2的结构和充放电行为进行了研究.结果表明Li[Ni1/3Li1/9Mn5/9]O2可标定为单相α-NaFeO2,并具有3ahex.×3ahex.×3chex.超结构特征.电池充电时,伴随锂离子的脱出,相邻氧原子层间的静电斥力逐渐增大,当电压为3.8V时应力达到最大.接近4.6V时,晶胞常数c急剧下降,绝大多数Li+从材料的锂层拔出,Ni2+发生氧化.4.6～4.8V之间c增大,a变化很小,说明过渡金属层中的Li+拔出,而过渡金属离子的氧化状态未改变. ', '北京科技大学学报', '#', '50', '2007年S2期 ');
