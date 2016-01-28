@@ -32,6 +32,12 @@ public class DataFromArchiveToView implements DataFromTableToView {
 				whereCondition.setLimit(page.getLimit());
 				map.put(page.getDataBind(), ac.getBean("archiveMapper",ArchiveMapper.class).getArchiveByCategory_idByIdByLimit(whereCondition));
 				map.put(page.getDataBind()+"_name",page.getDisplayName());
+				String tmp = "";
+				for(int i : page.getCategory_id())
+				{
+					tmp+=i+",";
+				}
+				map.put(page.getDataBind()+"_category_id", tmp);
 			}
 		}
 		return map;

@@ -28,6 +28,7 @@ public class DataFromPaperToView implements DataFromTableToView {
 				map.put(page.getDataBind(),ac.getBean("paperMapper",PaperMapper.class).getPaperByCategory_idByIdByLimit(whereCondition));
 				map.put(page.getDataBind()+"_name", page.getDisplayName());
 			}
+		
 		}
 		return map;
 	}

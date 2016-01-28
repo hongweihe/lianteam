@@ -7,4 +7,56 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getAllCategoryOrderBySortrank" resultType="org.lianteam.pojo.Category">
 		select * from t_category order by sortrank DESC
 	</select>
+	
+	<!-- 由category_id 获得 所在的category类 -->
+	 <select id="getOneCategoryByCategoryId" parameterType="int" resultType="org.lianteam.pojo.Category">
+	 	select * from t_category where id=#{category_id}
+	 </select>
+	 
+	 <!-- 由category_idList 获得所在的category集合类 -->
+	 <select id="getCategoryByCategoryList"  resultType="org.lianteam.pojo.Category" >
+	 	select * from t_category where id in
+	 	<foreach collection="list" item="tags" open="(" close=")" separator=","  >
+	 		#{tags}
+	 	</foreach>
+	 	order by sortrank DESC
+	 </select>
+	 <!-- 由category_idList 获得所在的相同父类的category集合 -->
+	 <!--
+	 	SELECT * from t_category where pid in (select pid from t_category where id in(11,16)) and pid!=0; 
+	  -->
+	 <select id="getSameFarherCategoryByCategroyList" resultType="org.lianteam.pojo.Category" >
+	 	select * from t_category where pid in (select pid from t_category where id in
+	 	<foreach collection="list" item="tags" open="(" close=")" separator="," >
+	 		#{tags}
+	 	</foreach>
+	 	) and pid!=0 order by sortrank DESC
+	 </select>
+	 
+	 <select id="getPidFromCategoryByCategoryList" resultType="org.lianteam.pojo.Category">
+	 	select * from t_category where id in (select pid from t_category where id in
+	 	<foreach collection="list" item="tags" open="(" close=")" separator="," >
+	 		#{tags}
+	 	</foreach>
+	 	)
+	 </select>
+	 
+	 <select id="getCategoryByPidList" resultType="org.lianteam.pojo.Category" >
+	 	select * from t_category where pid in
+	 	<foreach collection="list" item="tags" open="(" close=")" separator="," >
+	 		#{tags}
+	 	</foreach>
+	 </select>
+	 
+	 <select id="getCategoryById" parameterType="int" resultType="org.lianteam.pojo.Category">
+	 	select * from t_category where id=#{id}
+	 </select>
+	 
+	 <!-- 由主类的id获取主类  id类型为list -->
+	 <select id="getCategoryByIdList" resultType="org.lianteam.pojo.Category">
+	 	select * from t_category where id in
+	 	<foreach collection="list" item="tags" open="(" close=")" separator=",">
+	 	#{tags}
+	 	</foreach>
+	 </select>
 </mapper>

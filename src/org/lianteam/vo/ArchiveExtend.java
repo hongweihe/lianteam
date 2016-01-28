@@ -10,6 +10,8 @@ public class ArchiveExtend extends Archive {
 	private Archive archive;//需要的archive类
 	private List<Integer> category_idList;//category的数值，按照or关系取出数据//该值不能忽略
 	private List<Integer> idList;
+	private String pageNow;
+	private String rowCount;
 	//getter...setter...
 	public int getLimit() {
 		return limit;
@@ -34,6 +36,18 @@ public class ArchiveExtend extends Archive {
 	}
 	public void setIdList(List<Integer> idList) {
 		this.idList = idList;
+	}
+	public String getPageNow() {
+		return pageNow;
+	}
+	public void setPageNow(String pageNow) {
+		this.pageNow = pageNow;
+	}
+	public String getRowCount() {
+		return rowCount;
+	}
+	public void setRowCount(String rowCount) {
+		this.rowCount = rowCount;
 	}
 	
 	

@@ -286,7 +286,7 @@
   								时间：2016-01-26
   								描述：行业新闻与数据库绑定 显示名称
  							 -->
-							<h2><a href="#" target="_blank"><i class="icon_news"></i><c:out value="${hangyexinwen_name}"></c:out><!-- 行业新闻hangyexinwen --></a></h2>
+							<h2><a href="list/${hangyexinwen_category_id}/1" target="_blank"><i class="icon_news"></i><c:out value="${hangyexinwen_name}"></c:out><!-- 行业新闻hangyexinwen --></a></h2>
 						</div>
 						<div class="div_content">
 							<ul class="news_ul">

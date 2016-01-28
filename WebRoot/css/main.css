@@ -324,7 +324,7 @@ h3 a:hover{color: #538CE0; text-decoration: underline;}
 .page_content .side_bar{float: left;width: 180px;height: 100%;}
 .page_content .side_bar h2{background: url(../img/bg/sidebar_title_research.jpg) no-repeat 95% center;padding: 6px 0;text-indent: 6px;color: #2e2e2e;font-size: 18px;line-height: 22px;font-weight: bold;border-bottom: 2px solid #686c6e;}
 .page_content .side_bar h2 .small{display: block;line-height:14px;font-size: 12px;color: #b2babf;}
-.page_content .side_bar h2.news{background-image: url(../img/bg/sidebar_title_news.jpg;}
+.page_content .side_bar h2.news{background-image: url(../img/bg/sidebar_title_news.jpg);}
 .page_content .side_bar h2.about_us{background-image: url(../img/bg/sidebar_title_about.jpg);}
 .page_content .side_bar h2.contact_us{background-image: url(../img/bg/sidebar_title_contact.jpg);}
 .page_content .side_bar li{font-size: 14px;line-height: 34px;text-indent: 20px;background: url(../img/bg/sidebar_li.png) no-repeat 6px -22px;border-bottom: 1px solid #e7e7e7;}

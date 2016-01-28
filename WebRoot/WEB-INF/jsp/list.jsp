@@ -1,7 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page trimDirectiveWhitespaces="true" %><!-- 清除空白行 -->
+<%  
+    //定义路径，防止出现静态资源引用路径错误的问题
+	String path = request.getContextPath();  
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";  
+%>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<head>
+	    <base href="<%=basePath%>" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>新闻列表 / 新能源材料与综合利用技术实验室</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
@@ -188,45 +199,71 @@
 					<div class="bread_crumb">
 						<ul>
 							<li>当前位置：</li>
-							<li><a href="">新闻动态</a>&nbsp;&gt;&nbsp;</li>
-							<li><a href="">行业新闻</a></li>
+							<!-- 导航栏 -->
+							<c:forEach items="${navigateBar}" var="row">
+								<li><a href="#">${row.display}</a>&nbsp;&gt;&nbsp;</li>
+							</c:forEach>
 						</ul>
 					</div>
 
+					
 					<div class="side_bar">
 						<div class="sub_nav">
-							<h2 class="news">新闻动态<span class="small">NEWS&nbsp;CENTER</span></h2>
+						<!-- 从数据库取出数据 -->
+						 <c:forEach items="${pCategoryList}" var="Row">
+						 	<h2 class="news">${Row.name}<span class="small">${Row.display}</span></h2>
 							<ul class="head_sub_nav">
-								<li class="current"><a href="index.html" target="_blank">团队动态</a>
-								</li>
-								<li><a href="index.html" target="_blank">通知公告</a>
-								</li>
-								<li><a href="index.html" target="_blank">行业新闻</a>
-								</li>
-								<li><a href="index.html" target="_blank">生活常识</a>
-								</li>
+							<c:forEach items="${cCategoryList}" var="row" >
+								<c:if test="${row.pid==Row.id}">
+								<li><a href="#" target="_blank">${row.name}</a></li>
+								<!-- if class=current 表示当前 -->
+								</c:if>
+							
+							</c:forEach>
 							</ul>
+							<br />
+						 </c:forEach>
+							<!-- end -->
 						</div>
 					</div>
 					<div class="right_content">
-						<h2>团队动态<em>/</em><span>TEAM NEWS</span></h2>
+					<c:forEach items="${navigateBar}" var="row" varStatus="status" ><!-- 大标题 -->
+								<c:if test="${status.index==1}">
+									<h2>${row.display}<em>/</em><span>${row.display}</span></h2>
+								</c:if>
+								
+					</c:forEach>
+						
 						<ul>
-							<li><a href="index.html" target="_blank">连老师受邀残碱CIBF2014并做主题报告<span class="right">2015-01-16</span></a></li>
-							<li><a href="index.html" target="_blank">连老师受邀残碱CIBF2014并做主题报告<span class="right">2015-01-16</span></a></li>
-							<li><a href="index.html" target="_blank">连老师受邀残碱CIBF2014并做主题报告<span class="right">2015-01-16</span></a></li>
-							<li><a href="index.html" target="_blank">连老师受邀残碱CIBF2014并做主题报告<span class="right">2015-01-16</span></a></li>
-							<li><a href="index.html" target="_blank">连老师受邀残碱CIBF2014并做主题报告<span class="right">2015-01-16</span></a></li>
-							<li><a href="index.html" target="_blank">连老师受邀残碱CIBF2014并做主题报告<span class="right">2015-01-16</span></a></li>
-							<li><a href="index.html" target="_blank">连老师受邀残碱CIBF2014并做主题报告<span class="right">2015-01-16</span></a></li>
-							<li><a href="index.html" target="_blank">连老师受邀残碱CIBF2014并做主题报告<span class="right">2015-01-16</span></a></li>
-							<li><a href="index.html" target="_blank">连老师受邀残碱CIBF2014并做主题报告<span class="right">2015-01-16</span></a></li>
-							<li><a href="index.html" target="_blank">连老师受邀残碱CIBF2014并做主题报告<span class="right">2015-01-16</span></a></li>
+						<!-- 文章列表 -->
+						<c:forEach items="${pageList}" var="pagelist">
+							<li><a href="index.html" target="_blank">${pagelist.title}<span class="right"><fmt:formatDate value="${pagelist.creattime}" pattern="yyy-MM-dd" /></span></a></li>
+						</c:forEach>
 						</ul>
 						<div class="list_page_num">
 							<div class="div_page_num">
-								<a class="a_on" href="/list/news/center?page=1">1</a><a class="a" href="/list/news/center?page=2">2</a><a class="a" href="/list/news/center?page=3">3</a><a class="a" href="/list/news/center?page=4">4</a><a class="a" href="/list/news/center?page=5">5</a>
-								<a
-								class="a" href="/list/news/center?page=6">6</a><a class="a" href="/list/news/center?page=7">&gt;&gt;</a><a class="a" href="/list/news/center?page=2">下一页</a>
+							<c:if test="${pageNow>=2}">
+								<a class="a" href="list/${category_id}/${pageNow-1}">上一页</a>
+							</c:if>
+							<c:if test="${pageStart>1}">
+								<a class="a" href="list/${category_id}/${pageStart-1}"><<</a>
+							</c:if>
+							<c:forEach var="row" varStatus="status" begin="${pageStart}" end="${pageEnd}">
+ 					 			<!-- 页码输出 -->
+ 					 			<c:if test="${pageNow==row}">
+ 					 				<a class="a_on" href="list/${category_id}/${row}">${row}</a>
+ 					 			</c:if>
+ 					 			<c:if test="${pageNow!=row}">
+ 					 				<a class="a" href="list/${category_id}/${row}">${row}</a>
+ 					 			</c:if>
+ 					 				
+							</c:forEach>
+							<c:if test="${pageEnd<total}">
+								<a class="a" href="list/${category_id}/${pageEnd+1}">>></a>
+							</c:if>
+								<c:if test="${pageEnd<total}">
+								<a class="a" href="list/${category_id}/${pageNow+1}">下一页</a>
+								</c:if>
 							</div>
 							<div class="clear"></div>
 						</div>

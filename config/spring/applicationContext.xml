@@ -15,20 +15,11 @@
 		<!-- 整合spring与mybatis -->
 		<!-- 加载数据库配置文件 -->
 		<context:property-placeholder location="classpath:db.properties" />
-		<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-			<property name="driverClass" value="${c3p0.driverClass}"></property>  
-			<property name="jdbcUrl" value="${c3p0.url}"></property>  
-			<property name="user" value="${c3p0.user}"></property>  
-			<property name="password" value="${c3p0.password}"></property>  
-			<property name="acquireIncrement" value="${c3p0.acquireIncrement}"></property>  
-			<property name="initialPoolSize" value="${c3p0.initialPoolSize}"></property>  
-			<property name="maxIdleTime" value="${c3p0.maxIdleTime}"></property>  
-			<property name="maxPoolSize" value="${c3p0.maxPoolSize}"></property>  
-			<property name="minPoolSize" value="${c3p0.minPoolSize}"></property>     
-			<property name="acquireRetryDelay" value="${c3p0.acquireRetryDelay}"></property>  
-			<property name="acquireRetryAttempts" value="${c3p0.acquireRetryAttempts}"></property>  
-			<property name="breakAfterAcquireFailure" value="${c3p0.breakAfterAcquireFailure}"></property>
-			<property name="testConnectionOnCheckout" value="${c3p0.testConnectionOnCheckout}"></property>
+		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName" value="${c3p0.driverClass}" />
+            <property name="url" value="${c3p0.url}" />  
+            <property name="username" value="${c3p0.user}" />
+            <property name="password" value="${c3p0.password}" />
 		</bean>
 		<!-- 配置Mybatis的SqlSessionFactory -->
 		<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

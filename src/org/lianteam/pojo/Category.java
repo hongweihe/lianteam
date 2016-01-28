@@ -10,6 +10,8 @@ public class Category {
 	private Boolean is_title;
 	private int sortrank;
 	private String url;
+	private String display;
+	private String path;
 	//getter...setter...
 	public int getId() {
 		return id;
@@ -47,5 +49,18 @@ public class Category {
 	public void setUrl(String url) {
 		this.url = url;
 	}
+	public String getDisplay() {
+		return display;
+	}
+	public void setDisplay(String display) {
+		this.display = display;
+	}
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
+	}
+	
 	
 }

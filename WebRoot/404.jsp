@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta http-equiv=refresh content=2;url=http://www.lianteam.org/>
+<meta http-equiv=refresh content=2;url=/ />
 <title>404</title>
 <style type="text/css">
 <!--
@@ -19,7 +19,7 @@ body {
 <table border=0 cellpadding=0 cellspacing=0 width="100%" height="100%">
 <tr>
 	<td align="center" style="padding-top:60px;">
-    <img src="img/404.jpg" />    </td>
+    <img src="/img/404.jpg" />    </td>
 </tr>
 <tr>
 <form name=loading>
@@ -45,7 +45,7 @@ document.loading.percent.value=bar+"%"
 if (bar<99)
 {settimeout("count()",25);}//这里修改载入时间
 else
-{window.location = "http://www.lianteam.org";}//这里改成你的网站地址
+{window.location = "/";}//这里改成你的网站地址
 }
 </script>
 </p>

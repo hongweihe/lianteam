@@ -6,6 +6,8 @@ public class WhereCondition {
 	private int limit;//查询列表的数量//该值不能忽略
 	private List<Integer> category_idList;//category的数值，按照or关系取出数据//该值不能忽略
 	private List<Integer> idList;
+	private int pageNow;
+	private int pageSize;
 	//getter...setter...
 	public int getLimit() {
 		return limit;
@@ -25,4 +27,19 @@ public class WhereCondition {
 	public void setIdList(List<Integer> idList) {
 		this.idList = idList;
 	}
+	public int getPageNow() {
+		return pageNow;
+	}
+	public void setPageNow(int pageNow) {
+		this.pageNow = pageNow;
+	}
+	public int getPageSize() {
+		return pageSize;
+	}
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+	
+	
 }
+
