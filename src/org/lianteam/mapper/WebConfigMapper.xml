@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lianteam.mapper.WebConfigMapper">
+	<select id="getWebConfigByPageName" parameterType="String" resultType="org.lianteam.pojo.WebConfig">
+		select * from t_webconfig where pagename=#{pageName}
+	</select>
+</mapper>

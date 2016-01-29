@@ -1,7 +1,7 @@
 package org.lianteam.xmlBean;
 import javax.xml.bind.annotation.XmlRootElement;
 /*
- * 这是weninfo网站配置信息xml文件的映射类
+ * 缃戠珯淇℃伅閰嶇疆 webinfo瀵瑰簲鐨勬槧灏勭被
  * 
  */
 @XmlRootElement(name="WebInfo")
@@ -19,6 +19,8 @@ public class WebInfo {
 	private String beian;
 	private String content1;
 	private String content2;
+	private int pagesize;
+	private String myscript;
 	//getter...setter...
 	public String getKeyWords() {
 		return keyWords;
@@ -98,4 +100,18 @@ public class WebInfo {
 	public void setContent2(String content2) {
 		this.content2 = content2;
 	}
+	public int getPagesize() {
+		return pagesize;
+	}
+	public void setPagesize(int pagesize) {
+		this.pagesize = pagesize;
+	}
+	public String getMyscript() {
+		return myscript;
+	}
+	public void setMyscript(String myscript) {
+		this.myscript = myscript;
+	}
+	
+	
 }

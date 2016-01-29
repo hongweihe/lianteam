@@ -15,5 +15,8 @@
 	<beian>京ICP备14056588号-1 </beian>
 	<content1>连芳教授，材料学博士，博导。2008年入选北京市“科技新星”计划。2009年增补为科技部能源材料领域专家。现主要从事无机生态材料和新能源材料的制备和性能研究。在Journal of Membrane Science...</content1>
 	<content2></content2>
+	<pagesize>7</pagesize> <!-- 分页时，每个页含有的数据条目数多少 -->
+	<!-- myscript为网站统计脚本 因为前端已将加入了<script></script>，所谓该位置仅为代码段 -->
+	<myscript>var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257232182'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1257232182%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</myscript>
 	
 </WebInfo>

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50628
 File Encoding         : 65001
 
-Date: 2016-01-28 20:13:41
+Date: 2016-01-29 18:49:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -442,3 +442,31 @@ INSERT INTO `t_paper` VALUES ('1', '1', '新型聚乙烯醇缩甲醛基凝胶聚
 INSERT INTO `t_paper` VALUES ('2', '1', '锂离子电池用凝胶聚合物电解质研究进展', '关红艳', '2016-01-01 00:00:00', '凝胶聚合物电解质既具有固态聚合物电解质良好的力学加工性能和安全性能,又具有传统液态电解质较高的室温离子电导率。但凝胶聚合物电解质由于室温离子电导率低、力学强度较差的缺点限制了其在锂离子电池上的应用。结合目前研究的最新进展,本文针对几种常用凝胶聚合物电解质体系聚氧化乙烯、聚丙烯腈、聚甲基丙烯酸甲酯、聚偏氟乙烯-六氟丙烯和聚乙烯醇缩醛进行了综述,对其制备方法以及通过聚合物调控、加入无机填料和复合离子液体进行改性处理做了较全面的介绍,并探讨了凝胶聚合物电解质的应用前景。', '高分子材料科学与工程', '#', '50', '2012年11期 ');
 INSERT INTO `t_paper` VALUES ('3', '1', '粉末冶金制备AlNiCrFeCuMo_x高熵合金及其性能', '关红艳', '2016-01-01 00:00:00', '采用粉末冶金法制备AlNiCrFeCuMox(x=0～0.2)合金,研究Mo含量对合金微观组织以及力学性能的影响。随着Mo含量的增加,AlNiCrFeCuMox合金的微观组织均为典型的花瓣状枝晶,且由于高熵效应,使得体系的相组成十分简单,均为bcc和fcc;bcc最高峰的强度会逐渐降低,相应地fcc的强度有所增加,所以Mo元素促进了fcc结构的生成。同时,当x=0.1时,合金拥有较好的力学性能,硬度达到5160MPa,断裂强度为1161MPa,最大变形率为24.4%。AlNiCrFeCuMox合金的力学性能变化是元素性质与晶体结构综合作用的结果。 ', '稀有金属材料与工程', '#', '50', '2012年S2期 ');
 INSERT INTO `t_paper` VALUES ('4', '1', '正极材料Li[Ni1/3Li1/9Mn5/9]O2的结构和充放电过程研究', '连芳', '2016-01-01 00:00:00', '应用X射线衍射,选区电子衍射和同步X射线衍射等方法,对锂离子电池正极材料Li[Ni1/3Li1/9Mn5/9]O2的结构和充放电行为进行了研究.结果表明Li[Ni1/3Li1/9Mn5/9]O2可标定为单相α-NaFeO2,并具有3ahex.×3ahex.×3chex.超结构特征.电池充电时,伴随锂离子的脱出,相邻氧原子层间的静电斥力逐渐增大,当电压为3.8V时应力达到最大.接近4.6V时,晶胞常数c急剧下降,绝大多数Li+从材料的锂层拔出,Ni2+发生氧化.4.6～4.8V之间c增大,a变化很小,说明过渡金属层中的Li+拔出,而过渡金属离子的氧化状态未改变. ', '北京科技大学学报', '#', '50', '2007年S2期 ');
+
+-- ----------------------------
+-- Table structure for t_webconfig
+-- ----------------------------
+DROP TABLE IF EXISTS `t_webconfig`;
+CREATE TABLE `t_webconfig` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pagename` varchar(64) DEFAULT NULL,
+  `tablename` varchar(64) DEFAULT NULL,
+  `databind` varchar(64) DEFAULT NULL,
+  `display` varchar(64) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `limit` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_webconfig
+-- ----------------------------
+INSERT INTO `t_webconfig` VALUES ('1', 'index', 't_archive', 'wangzhanredian', '网站热点', '23', '8');
+INSERT INTO `t_webconfig` VALUES ('2', 'index', 't_archive', 'hangyexinwen', '行业新闻', '23', '6');
+INSERT INTO `t_webconfig` VALUES ('3', 'index', 't_archive', 'yeneiqianyan', '业内前沿', '23', '3');
+INSERT INTO `t_webconfig` VALUES ('4', 'index', 't_focusimage', 'daohanglanxiajiaodiantu', '焦点图', '-1', '5');
+INSERT INTO `t_webconfig` VALUES ('5', 'index', 't_focusimage', 'yanjiufangxiang', '研究方向', '-2', '4');
+INSERT INTO `t_webconfig` VALUES ('6', 'index', 't_focusimage', 'shenghuotieshi', '生活贴士', '-3', '3');
+INSERT INTO `t_webconfig` VALUES ('7', 'index', 't_focusimage', 'zhumingwenzhang', '著名文章', '-4', '4');
+INSERT INTO `t_webconfig` VALUES ('8', 'index', 't_focusimage', 'keyanyiqi', '科研仪器', '-5', '8');
+INSERT INTO `t_webconfig` VALUES ('9', 'index', 't_paper', 'zuixinlunwen', '最新论文', '1', '3');

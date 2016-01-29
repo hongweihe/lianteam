@@ -5,7 +5,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
-public class XmlToBean {//½«À´ÀûÓÃspring³õÈëµ½ÆäËûÀàÖĞ
+public class XmlToBean {
 	private String path;
 	private String xmlFile;
 	//getter....setter...
@@ -38,20 +38,20 @@ public class XmlToBean {//½«À´ÀûÓÃspring³õÈëµ½ÆäËûÀàÖĞ
 	{	
 		if(this.path==null || this.path=="")
 		{
-			this.path =  this.getClass().getClassLoader().getResource("").getPath();//»ñÈ¡ÀàËùÔÚÂ·¾¶
+			this.path =  this.getClass().getClassLoader().getResource("").getPath();//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 		}
 		if(this.xmlFile==null || this.xmlFile=="")
 		{
 			this.xmlFile="webconfig.xml";
 		}
 		
-		File xmlFile = new File(this.path+this.xmlFile);//¶ÁÈ¡ÎÄ¼ş
-		JAXBContext context = JAXBContext.newInstance(clazz);//½¨Á¢ÀàµÄÉÏÏÂÎÄ
-		Unmarshaller unm = context.createUnmarshaller();//½¨Á¢Unmarshaller¶ÔÏó
-		return (Object)unm.unmarshal(xmlFile);//·µ»ØObject¶ÔÏó
+		File xmlFile = new File(this.path+this.xmlFile);//ï¿½ï¿½È¡ï¿½Ä¼ï¿½
+		JAXBContext context = JAXBContext.newInstance(clazz);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		Unmarshaller unm = context.createUnmarshaller();//ï¿½ï¿½ï¿½ï¿½Unmarshallerï¿½ï¿½ï¿½ï¿½
+		return (Object)unm.unmarshal(xmlFile);//ï¿½ï¿½ï¿½ï¿½Objectï¿½ï¿½ï¿½ï¿½
 		/*
-		 * Object ÊÇÒ»¸ö¶ÔÏó
-		 * Êµ¼ÊÉÏÓ¦¸ÃÎªÒ»¸öObjects ¶ÔÏó Àï±ß °üº¬ÁË List<Object> ³ÉÔ±±äÁ¿
+		 * Object ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		 * Êµï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ÎªÒ»ï¿½ï¿½Objects ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ List<Object> ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½
 		 * public Pages {
 		 * 	private List<Page> pageList
 		 * }

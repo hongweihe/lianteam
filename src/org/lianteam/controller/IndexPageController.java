@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.lianteam.mapper.CategoryMapper;
-import org.lianteam.service.DataCollectionImpl;
+import org.lianteam.service.ListViewFromTable;
 import org.lianteam.xmlBean.WebInfo;
 import org.lianteam.xmlBean.XmlToBean;
 import org.springframework.context.ApplicationContext;
@@ -15,27 +15,26 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class IndexPageController {
-	private ApplicationContext applicationcontext;//spring´úÀíÆ÷
+	private ApplicationContext applicationcontext;//
 	public  IndexPageController() {
-		//Í¨¹ı¹¹Ôìº¯Êı£¬³õÊ¼»¯Ò»¸öspring´úÀíÆ÷
-		this.applicationcontext = new ClassPathXmlApplicationContext("spring/applicationContext.xml");//
-		//ClassPathXmlApplicationContext
-	}
-	@RequestMapping("/index")//indexÒ³ÃæµÄ¿ØÖÆÆ÷»òÕßhandler
-	public ModelAndView pageShow() throws Exception {
-		ModelAndView modelAndView = new ModelAndView("index2");//ĞÂ½¨Ò»¸öModelAndViewÓÃÓÚ·µ»Ø
-		Map<String,Object> map = new HashMap<>();//ĞÂ½¨Ò»¸öMap£¬ÓÃÀ´×°ÔØÒ³ÃæÖĞµÄÊı¾İ
 		
-		//ÍøÕ¾µÄ»ù´¡ĞÅÏ¢£¬ÀıÈçÃû³Æ¡¢µØÖ·¡¢ÁªÏµ·½Ê½µÈ
+		this.applicationcontext = new ClassPathXmlApplicationContext("spring/applicationContext.xml");//
+		
+	}
+	@RequestMapping("/index")//
+	public ModelAndView pageShow() throws Exception {
+		ModelAndView modelAndView = new ModelAndView("index2");
+		Map<String,Object> map = new HashMap<>();
+		
+		
 		 XmlToBean xtb = new XmlToBean("webinfo.xml");	
 		 map.put("webinfo", (WebInfo) xtb.getBeanFromXml(WebInfo.class));
 		
-		 //µ¼º½À¸µÄÊı¾İ·ÅÈënavigateListÖĞ
+		//å¯¼èˆªæ 
 		map.put("navigateList", this.applicationcontext.getBean("categoryMapper",CategoryMapper.class).getAllCategoryOrderBySortrank());
 		
-		//org.lianteam.service.DataFromTableToView Êı¾İ×Ô¶¯°ó¶¨Æ÷
-		
-		map.putAll(new DataCollectionImpl().GetDataCollection(applicationcontext, "index", "webconfig.xml"));
+		//å†…å®¹é¡µ
+		map.putAll(new ListViewFromTable().getListViewFromTable("index"));
 		modelAndView.addAllObjects(map);
 		return modelAndView;
 	}

@@ -3,31 +3,29 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.lianteam.mapper.ArchiveMapper">
-	<!-- 选出分类表中所有数据，并按照sortrank字段进行降序排列 ,根据category的数值在数据库中按照 or 关系取出列表-->
-	<select id="getArchiveByCategory_idByIdByLimit" parameterType="org.lianteam.vo.WhereCondition" resultType="org.lianteam.pojo.Archive">
-		select * from t_archive where category_id in
-		<foreach collection="category_idList" item="tag"  open="(" close=")" separator="," >
-			#{tag}
-		</foreach>
-		order by id DESC,sortrank DESC limit #{limit}
-	</select>
-	
 	<!-- 分页使用 按照category_id的分类进行选择，然后再进行分页查询，返回一个archive对象--><!-- 对于数据量较大的类型，应该进行二次查询分页的方式 -->
-	<select id="getArchiveListPagination" parameterType="org.lianteam.vo.WhereCondition" resultType="org.lianteam.pojo.Archive">
+	<select id="getArchiveListPagination" parameterType="org.lianteam.vo.PaginationCondition" resultType="org.lianteam.pojo.Archive">
 		select id,category_id,creattime,title from t_archive where category_id in
 		<foreach collection="category_idList" item="tag"  open="(" close=")" separator="," >
 			#{tag}
 		</foreach>	
 		order by id DESC,sortrank DESC limit ${(pageNow-1)*pageSize},#{pageSize}
 	</select>
+	<!-- end -->
 	
-	 <!-- 取出对应category_id分类中的数据总条目数，按int类型返回 -->
-	<select id="getTotalByCategory_id"  parameterType="org.lianteam.vo.WhereCondition" resultType="int">
+	
+	 <!-- 由 PaginationCondition 的分类条件 取出对应category_id分类中的数据总条目数，按int类型返回 -->
+	<select id="getTotalByPaginationCondition"  parameterType="org.lianteam.vo.PaginationCondition" resultType="int">
 		select count(*) from t_archive where category_id in
 		<foreach collection="category_idList" item="tag" open="(" separator="," close=")">
 			#{tag}
 		</foreach>
 	</select>
+	<!-- end -->
 	
+	<!-- 根据category_id 和limit 条件获得 archive List -->
+	<select id="getListByCategory_idAndLimit" parameterType="org.lianteam.vo.ListViewCondition" resultType="org.lianteam.pojo.Archive">
+		select id,category_id,creattime,title,content from t_archive where category_id=#{category_id} order by id DESC,sortrank DESC limit #{limit}
+	</select>
 	<!-- end -->
 </mapper>

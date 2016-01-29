@@ -93,11 +93,11 @@
   						时间：2016-01-26
   						描述：网站热点与数据库绑定
  					 -->
-					<span><c:out value="${wangzhanredian_name }"></c:out><!-- 网站热点 --></span>
+					<span><c:out value="${wangzhanredian_cfg.display }"></c:out><!-- 网站热点 --></span>
 					<ul id="hot_news_ul">
 					<!-- 从数据库中取出数据  -->
-					<c:forEach items="${wangzhanredian}" var="archive">
-			 		<li><a href="/view/${archive.category_id}/${archive.id}" target="_blank">${archive.title}</a></li>
+					<c:forEach items="${wangzhanredian}" var="tags">
+			 		<li><a href="/view/${tags.category_id}/${tags.id}" target="_blank">${tags.title}</a></li>
 					</c:forEach>
 					</ul>
 				</div>
@@ -115,8 +115,8 @@
   						时间：2016-01-26
   						描述：焦点图与数据库绑定
  					 -->
-					<c:forEach items="${daohanglanxiajiaodiantu}" var="focusImage">
-						<li><img src="img/banner/${focusImage.image}" alt="${focusImage.alt}" width="980" height="276"></li>
+					<c:forEach items="${daohanglanxiajiaodiantu}" var="tags">
+						<li><img src="img/banner/${tags.image}" alt="${tags.alt}" width="980" height="276"></li>
 					</c:forEach>		
 					</ul>
 					<ul class="banner_num"></ul>
@@ -129,7 +129,7 @@
   						时间：2016-01-26
   						描述：研究方向与数据库绑定 该位置为显示的名称
  							 -->
-							<h2><a href="#" target="_blank"><i class="icon_research"></i>${yanjiufangxiang_name}<!-- 研究方向 --></a></h2>
+							<h2><a href="#" target="_blank"><i class="icon_research"></i>${yanjiufangxiang_cfg.display}<!-- 研究方向 --></a></h2>
 						</div>
 						<div class="div_content">
 							<ul class="research_area_left">
@@ -235,16 +235,16 @@
   								时间：2016-01-26
   								描述：研究方向与数据库绑定 该位置为显示的图片
  							 -->
-								<c:forEach items="${yanjiufangxiang}" var="yjfx" varStatus="row">
+								<c:forEach items="${yanjiufangxiang}" var="tags" varStatus="row">
 									<c:if test="${row.index==0}">
 										<li>
-									<h3 class="title"><a href=${yjfx.url} target="_blank">${yjfx.alt}</a></h3>
-									<p class="content">${yjfx.content}</p>
+									<h3 class="title"><a href=${tags.url} target="_blank">${tags.alt}</a></h3>
+									<p class="content">${tags.content}</p>
 										</li>
 									</c:if>
 									<li class="bg${row.index+1}">
-									<h3 class="title"><a href="${yjfx.url}" target="_blank">${yjfx.alt}</a></h3>
-									<p class="content">${yjfx.content}</p>
+									<h3 class="title"><a href="${tags.url}" target="_blank">${tags.alt}</a></h3>
+									<p class="content">${tags.content}</p>
 									</li>
 								</c:forEach>
 							</ul>
@@ -254,8 +254,8 @@
   									时间：2016-01-26
   									描述：研究方向与数据库绑定 该位置为显示的题目和部分内容
  							 -->
-								<c:forEach items="${yanjiufangxiang}" var="yjfx" varStatus="row">
-								<li class="bg${row.index+1}"><a href="${yjfx.url}" target="_blank">${yjfx.title}</a>
+								<c:forEach items="${yanjiufangxiang}" var="tags" varStatus="row">
+								<li class="bg${row.index+1}"><a href="${tags.url}" target="_blank">${tags.title}</a>
 								</li>
 								</c:forEach>
 							</ul>
@@ -286,7 +286,7 @@
   								时间：2016-01-26
   								描述：行业新闻与数据库绑定 显示名称
  							 -->
-							<h2><a href="list/${hangyexinwen_category_id}/1" target="_blank"><i class="icon_news"></i><c:out value="${hangyexinwen_name}"></c:out><!-- 行业新闻hangyexinwen --></a></h2>
+							<h2><a href="list/${hangyexinwen_cfg.category_id}/1" target="_blank"><i class="icon_news"></i><c:out value="${hangyexinwen_cfg.display}"></c:out><!-- 行业新闻hangyexinwen --></a></h2>
 						</div>
 						<div class="div_content">
 							<ul class="news_ul">
@@ -295,25 +295,25 @@
   								时间：2016-01-26
   								描述：行业新闻与数据库绑定 显示列表
  							 -->
-									<c:forEach items="${hangyexinwen}" var="hyxw" varStatus="row">
+									<c:forEach items="${hangyexinwen}" var="tags" varStatus="row">
 									<c:if test="${row.index==0}">
-										<c:if test="${hyxw.image==null||hyxw.image==''}">
+										<c:if test="${tags.image==null||hyxw.image==''}">
 											<li class="first">
-												<span><a href="#" target="_blank"><img src="img/lab_news/1.jpg" alt="${hyxw.title}"></a></span>
-												<h3><a href="#" target="_blank">${hyxw.title}</a></h3>
-												<p class="">${hyxw.content}</p>
+												<span><a href="#" target="_blank"><img src="img/lab_news/1.jpg" alt="${tags.title}"></a></span>
+												<h3><a href="#" target="_blank">${tags.title}</a></h3>
+												<p class="">${tags.content}</p>
 											</li>
 										</c:if>
 										<c:if test="hyxw.image!=''">
 											<li class="first">
-												<span><a href="#" target="_blank"><img src="img/lab_news/${hyxw.image}" alt="${hyxw.title}"></a></span>
-												<h3><a href="#" target="_blank">${hyxw.title}</a></h3>
-												<p class="">${hyxw.content}</p>
+												<span><a href="#" target="_blank"><img src="img/lab_news/${tags.image}" alt="${tags.title}"></a></span>
+												<h3><a href="#" target="_blank">${tags.title}</a></h3>
+												<p class="">${tags.content}</p>
 											</li>
 										</c:if>
 									</c:if>
 									<c:if test="${row.index!=0}">
-									<li><a href="#" target="_blank">${hyxw.title}</a></li>
+									<li><a href="#" target="_blank">${tags.title}</a></li>
 									</c:if>
 								</c:forEach><!-- end -->
 							</ul>
@@ -326,7 +326,7 @@
   								时间：2016-01-26
   								描述：业内前沿与数据库绑定 显示名称
  							 -->
-							<h2><a href="#" target="_blank"><i class="icon_trends"></i>${yeneiqianyan_name}<!--业内前沿--></a></h2>
+							<h2><a href="#" target="_blank"><i class="icon_trends"></i>${yeneiqianyan_cfg.display}<!--业内前沿--></a></h2>
 						</div>
 						<div class="div_content">
 							<ul class="dashed_ul">
@@ -335,10 +335,10 @@
   								时间：2016-01-26
   								描述：业内前沿与数据库绑定 显示列表
  							 -->
-								<c:forEach items="${yeneiqianyan}" var="ynqy">
+								<c:forEach items="${yeneiqianyan}" var="tags">
 									<li>
-									<h3><a href="#" target="_blank">${ynqy.title}</a></h3>
-									<p>${ynqy.content}</p>
+									<h3><a href="#" target="_blank">${tags.title}</a></h3>
+									<p>${tags.content}</p>
 								</li>
 								</c:forEach>
 							</ul>
@@ -351,7 +351,7 @@
   								时间：2016-01-26
   								描述：生活贴士与数据库绑定 显示名称
  							 -->
-							<h2><a href="#" target="_blank"><i class="icon_tips"></i>${shenghuotieshi_name}<!--生活贴士--></a></h2>
+							<h2><a href="#" target="_blank"><i class="icon_tips"></i>${shenghuotieshi_cfg.display}<!--生活贴士--></a></h2>
 						</div>
 						<div class="div_content">
 							<div class="scroll_pic_news">
@@ -361,9 +361,9 @@
   								时间：2016-01-26
   								描述：行业新闻与数据库绑定 显示列表
  							 -->
-									<c:forEach items="${shenghuotieshi}" var="shts">
-									<li><a href="#" target="_blank"><img src="img/tips/${shts.image}" alt="${shts.alt}">
-									<p>${shts.title}</p>
+									<c:forEach items="${shenghuotieshi}" var="tags">
+									<li><a href="#" target="_blank"><img src="img/tips/${tags.image}" alt="${tags.alt}">
+									<p>${tags.title}</p>
 										</a>
 									</li>
 									</c:forEach>
@@ -371,10 +371,10 @@
 							</div>
 							<div class="pic_index_box">
 								<ul class="scroll_pic_index">
-									<c:forEach items="${shenghuotieshi}" var="shts">
+									<c:forEach items="${shenghuotieshi}" var="tags">
 										<li><span></span>
 											<a href="javascript: viod(0)" target="_blank">
-												<img src="img/tips/${shts.image}" alt="${shts.alt}">
+												<img src="img/tips/${tags.image}" alt="${tags.alt}">
 											</a>
 										</li>
 									</c:forEach>
@@ -404,18 +404,18 @@
 					</div>
 					<div id="latest_paper" class="div_long">
 						<div class="div_title">
-							<h2><a href="#" target="_blank"><i class="icon_papers"></i>${zuixinlunwen_name}<!-- 最新论文 --></a></h2>
+							<h2><a href="#" target="_blank"><i class="icon_papers"></i>${zuixinlunwen_cfg.display}<!-- 最新论文 --></a></h2>
 						</div>
 						<div class="div_content">
 							<div class="paper_div">
 								<ul class="dashed_ul">
 									<!-- 最新论文 --><!-- start -->
-									<c:forEach items="${zuixinlunwen}" var="zxlw">
+									<c:forEach items="${zuixinlunwen}" var="tags">
 										<li>
-										<h3>题目：<a href="#" target="_blank">${zxlw.title}</a></h3>
-										<span class="journal">期刊：<a href="#" target="_blank">${zxlw.qikan}</a></span>
-										<span class="volume">卷数：<a href="#" target="_blank">${zxlw.volume}</a></span>
-										<a class="download_pdf" href="${zxlw.file}" target="_blank">[下载PDF]</a>
+										<h3>题目：<a href="#" target="_blank">${tags.title}</a></h3>
+										<span class="journal">期刊：<a href="#" target="_blank">${tags.qikan}</a></span>
+										<span class="volume">卷数：<a href="#" target="_blank">${tags.volume}</a></span>
+										<a class="download_pdf" href="${tags.file}" target="_blank">[下载PDF]</a>
 										</li>
 									</c:forEach><!-- end -->
 								</ul>
@@ -427,9 +427,9 @@
   								时间：2016-01-26
   								描述：著名文章的焦点图与数据库绑定
  							 -->
-								<c:forEach items="${zhumingwenzhang}" var="zmwz">
+								<c:forEach items="${zhumingwenzhang}" var="tags">
 									<li>
-										<img src="img/papers/${zmwz.image}" width="298">
+										<img src="img/papers/${tags.image}" width="298">
 									</li>
 								</c:forEach>
 								</ul>
@@ -443,16 +443,16 @@
 					<div id="research_instruments" class="div_long">
 						<div class="div_title">
 						<!--  -->
-							<h2><a href="#" target="_blank"><i class="icon_instruments"></i>${keyanyiqi_name}</a></h2>
+							<h2><a href="#" target="_blank"><i class="icon_instruments"></i>${keyanyiqi_cfg.display}</a></h2>
 						</div>
 						<div class="div_content">
 							<div class="margin_lr10">
 								<ul class="instru_ul">
-								<c:forEach items="${keyanyiqi}" var="kyyq">
+								<c:forEach items="${keyanyiqi}" var="tags">
 									<li>
 										<a href="#">
-											<img src="img/instruments/${kyyq.image}" alt="${kyyq.alt}">
-											<p>${kyyq.title}</p>
+											<img src="img/instruments/${tags.image}" alt="${tags.alt}">
+											<p>${tags.title}</p>
 										</a>
 									</li>
 								</c:forEach>
@@ -502,8 +502,8 @@
   								描述：页脚内容与webinfo配置文件绑定
  							 -->
 					<p>Copyright&nbsp;&nbsp;©&nbsp;&nbsp;${webinfo.copyright}&nbsp;&nbsp;版权所有 All Rights Reserved</p>
-					<p>地址：${webinfo.address}&nbsp;&nbsp;&nbsp;&nbsp;电话：${webinfo.tel}&nbsp;&nbsp;&nbsp;&nbsp;电子邮箱：ustbenergy@aliyun.com</p>
-					<p>${webinfo.support1}&nbsp;&nbsp;&nbsp;&nbsp;${webinfo.beian}</p>
+					<p>地址：${webinfo.address}&nbsp;&nbsp;&nbsp;&nbsp;电话：${webinfo.tel}&nbsp;&nbsp;&nbsp;&nbsp;电子邮箱：${webinfo.email}</p>
+					<p>${webinfo.support1}&nbsp;&nbsp;&nbsp;&nbsp;${webinfo.beian}&nbsp;&nbsp;<script type="text/javascript">${webinfo.myscript}</script></p>
 				</div>
 				<div class="right_content"></div>
 				<div class="clear"></div>
